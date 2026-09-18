@@ -1,0 +1,252 @@
+/* =========================================================
+   Nashim Rahman — personal homepage
+   Retro academic style: lime-green background, dark green
+   headings/nav, thin rules, minimal decoration.
+   ========================================================= */
+
+:root{
+  --bg: #d7f24a;         /* lime-green background */
+  --bg-sidebar: #d7f24a;
+  --heading: #1f4d1f;    /* dark green for headings/nav */
+  --text: #111111;       /* near-black body text */
+  --rule: #444444;       /* thin gray/dark rules */
+  --link: #1f4d1f;
+  --link-hover: #0e3010;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  margin: 0;
+  font-family: Helvetica, Arial, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  min-height: 100vh;
+  align-items: flex-start;
+}
+
+/* ---------- Sidebar ---------- */
+
+.sidebar{
+  width: 280px;
+  flex: 0 0 280px;
+  padding: 32px 20px;
+  border-right: 1px solid var(--rule);
+  min-height: 100vh;
+  background-color: var(--bg-sidebar);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar:hover{
+  background-color: #1a3d1a;
+  color: #ffffff;
+}
+
+.sidebar:hover .name,
+.sidebar:hover .title,
+.sidebar:hover .edu-block,
+.sidebar:hover .side-section h2,
+.sidebar:hover .side-section p{
+  color: #ffffff;
+}
+
+.sidebar:hover a{
+  color: #a8e6a8;
+}
+
+.sidebar:hover a:hover{
+  color: #ffffff;
+}
+
+.sidebar:hover .side-rule{
+  border-top-color: #4a7a4a;
+}
+
+.profile-photo{
+  display: block;
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  margin: 0 auto 18px;
+  filter: grayscale(15%);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.profile-photo:hover{
+  transform: scale(1.02);
+  filter: grayscale(0%);
+}
+
+.name{
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: var(--text);
+  margin: 0 0 4px;
+}
+
+.title{
+  text-align: center;
+  margin: 0 0 14px;
+  font-weight: bold;
+}
+
+.edu-block{
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+
+.side-rule{
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 18px 0;
+}
+
+.side-section h2{
+  font-size: 0.95rem;
+  color: var(--heading);
+  margin: 0 0 8px;
+}
+
+.side-section p{
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0 0 6px;
+  word-break: break-word;
+}
+
+/* ---------- Main content ---------- */
+
+.content{
+  flex: 1 1 auto;
+  padding: 32px 48px 80px;
+  max-width: 900px;
+}
+
+.topnav{
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.topnav a{
+  color: var(--heading);
+  text-decoration: none;
+}
+
+.topnav a:hover{
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+.topnav a.active{
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+.top-rule{
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 14px 0 28px;
+}
+
+/* bottom-rule is hidden — footer's own border-top serves as the dividing line */
+.bottom-rule{
+  display: none;
+}
+
+.section{
+  margin-bottom: 46px;
+}
+
+.section h2{
+  color: var(--heading);
+  font-size: 1.1rem;
+  margin: 0 0 12px;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 4px;
+  display: inline-block;
+}
+
+.section h3{
+  color: var(--heading);
+  font-size: 1rem;
+  margin: 18px 0 6px;
+}
+
+.section p{
+  line-height: 1.6;
+  margin: 0 0 12px;
+  max-width: 68ch;
+}
+
+.section ul{
+  margin: 0 0 12px 18px;
+  line-height: 1.6;
+}
+
+.quicklinks a{
+  color: var(--link);
+}
+
+a{
+  color: var(--link);
+  text-decoration: underline;
+}
+
+a:hover{
+  color: var(--link-hover);
+}
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  left: 280px;
+  right: 0;
+  text-align: right;
+  font-size: 0.82rem;
+  color: var(--text);
+  background-color: var(--bg);
+  padding: 6px 48px 6px 20px;
+  border-top: 1px solid var(--rule);
+  z-index: 100;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 800px){
+  body{
+    flex-direction: column;
+  }
+
+  .sidebar{
+    width: 100%;
+    flex: none;
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
+    min-height: auto;
+  }
+
+  .content{
+    padding: 28px 20px 72px;
+    max-width: 100%;
+  }
+
+  .footer{
+    left: 0;
+    padding: 6px 20px;
+  }
+
+  .topnav{
+    line-height: 1.8;
+  }
+}
